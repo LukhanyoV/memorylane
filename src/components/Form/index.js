@@ -11,7 +11,7 @@ function Form() {
       "filename": theFilename || theFile.name,
       "file": theFile
     }
-    await axios.post("http://comm-drive.deta.dev/upload", file, {
+    await axios.post("https://comm-drive.deta.dev/upload", file, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
