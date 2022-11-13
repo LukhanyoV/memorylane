@@ -11,22 +11,18 @@ function Form() {
       "filename": theFilename || theFile.name,
       "file": theFile
     }
-    console.log("i am in", JSON.stringify(file));
-    const results = await axios.post("http://comm-drive.deta.dev/upload", file, {
+    await axios.post("http://comm-drive.deta.dev/upload", file, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     });
-    console.log("results", results);
-    console.log("filename", theFilename);
-    console.log("file", theFile);
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor='filename'>Input file name</label>
-        <input type='text' id='filename' name='filename' onChange={e => setTheFilename(e.target.value)} />
+        <input type='text' id='filename' name='filename' onChange={e => setTheFilename(e.target.value)} placeholder='optional' />
       </div>
       <div>
         <label htmlFor='file'>Select file</label>

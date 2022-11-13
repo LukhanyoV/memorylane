@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Gallery.css';
 
 function Gallery() {
     const [images, setImages] = useState([]);
@@ -18,7 +19,7 @@ function Gallery() {
         return "data:image/jpeg;base64,"+data.data;
     }
 
-    return <div>
+    return <div className='gallery'>
     {images.map(image => {
         return <div key={image.name}>
             <h2>{image.name}</h2>
